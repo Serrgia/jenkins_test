@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('create docker image') {
+            steps {
+                echo '===start building images==='
+                dir ('/home/user/lab/docker/jenkins_test') {
+                    sh 'docker build -t wp/wp:1_0 .'
+                }
+            }
+        }
+    }
+}
